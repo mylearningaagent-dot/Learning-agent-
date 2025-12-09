@@ -5,7 +5,7 @@
   <h2>Group Members</h2>
   <ul>
     <li>Archana MannamSai</li>
-    <liSupraja GantaRaymond </li>
+    <li>Supraja GantaRaymond </li>
     <li>Frimpong Amoateng</li>
   </ul>
 
