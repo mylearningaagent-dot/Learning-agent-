@@ -1,21 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Reinforcement Learning in Gridworld and Pacman — Mid-Status Manual</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.6; color:#111; padding:24px; max-width:900px; margin:0 auto; }
-    h1, h2, h3 { color:#0b5cff; margin-top:1.2rem; }
-    pre { background:#0f1724; color:#e6eef8; padding:12px; border-radius:8px; overflow:auto; }
-    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; }
-    table { border-collapse:collapse; width:100%; margin:1rem 0; }
-    th, td { border:1px solid #ddd; padding:8px; text-align:left; }
-    th { background:#f3f4f6; }
-    ul { margin:0.5rem 0 1rem 1.25rem; }
-    .muted { color:#555; }
-  </style>
-</head>
+
 <body>
 
   <h1>Reinforcement Learning in Gridworld and Pacman: Performance Analysis of Q-Learning vs Value Iteration</h1>
