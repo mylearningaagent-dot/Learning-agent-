@@ -1,157 +1,199 @@
-Reinforcement Learning in Gridworld and Pacman: Performance Analysis of Q-Learning vs Value Iteration
-
+Reinforcement Learning in Gridworld and Pacman
+Performance Analysis of Q-Learning vs Value Iteration
 Group Members
-- Archana Mannam
-- Sai Supraja Ganta
-- Raymond Frimpong Amoateng
+
+Archana Mannam
+
+Sai Supraja Ganta
+
+Raymond Frimpong Amoateng
 
 1. Introduction
 
-This project investigates how Q-Learning (model-free) and Value Iteration (model-based) differ in terms of:
+This project investigates how Q-Learning (model-free) and Value Iteration (model-based) differ in:
 
-- Convergence rate
-- Cumulative reward
-- Policy optimality
+Convergence rate
 
-The comparison is performed in two reinforcement learning environments:
+Cumulative reward
 
-- Gridworld, which is deterministic and fully observable
-- Pacman, which is dynamic, stochastic, and adversarial
+Policy optimality
 
-The project evaluates algorithm behavior through agent–environment interactions, measuring:
+Two environments were used:
 
-- Cumulative reward per episode
-- Convergence time
-- Episode length
-- Success rate
+Gridworld – deterministic, fully observable
 
-These environments were selected to highlight the strengths of each algorithm:
+Pacman – dynamic, adversarial, stochastic
 
-- Value Iteration performs best in deterministic environments.
-- Q-Learning adapts well to uncertain and adversarial environments.
+Performance was evaluated using:
+
+Cumulative reward
+
+Episode length
+
+Success rate
+
+Convergence stability
+
+Why these environments?
+
+Value Iteration excels in deterministic environments.
+
+Q-Learning adapts to uncertain or adversarial environments.
 
 2. Codebase and Implementation Structure
+Framework
 
-The project uses the UC Berkeley CS188 RL Framework.
+UC Berkeley CS188 Reinforcement Learning Framework.
 
-Navigation to the Project Directory:
+Navigate to project directory
 cd reinforcement/reinforcement/reinforcement/
 dir
 
-Environment Layer:
-- gridworld.py – defines Gridworld states, transitions, and rewards.
-- pacman.py – defines Pacman states, actions, food, ghosts, and rewards.
+Environment Layer Files
 
-Agent Layer:
-- qlearningAgents.py
-  Implements Q-Learning using the update rule:
-  Q(s,a) ← Q(s,a) + α [ r + γ max_a' Q(s',a') − Q(s,a) ]
+gridworld.py — Gridworld states, transitions, rewards.
 
-- valueIterationAgents.py
-  Implements Value Iteration using full transition models.
+pacman.py — Pacman states, ghosts, food, scoring rules.
 
-This modular architecture ensures clarity, reproducibility, and easy experimentation.
+Agent Layer Files
+
+qlearningAgents.py — Q-Learning agent
+
+valueIterationAgents.py — Value Iteration agent
+
+Q-Learning Update Rule
+Q(s,a) = Q(s,a) + α * ( r + γ * max_a' Q(s',a') - Q(s,a) )
+
+
+This architecture ensures clean separation of environment and agent logic.
 
 3. Value Iteration in Gridworld
+Purpose
 
-Purpose:
-To demonstrate fast convergence in a deterministic environment.
+To show fast, stable convergence in a deterministic environment.
 
-Expected Results:
-- Convergence in 1 episode
-- Average reward: +0.59
+Expected Output
 
-Command:
+Convergence: 1 episode
+
+Average reward: ~ +0.59
+
+Command
 python autograder.py -q q4
 
-Outcome:
-- Autograder passes all tests.
-- Confirms immediate convergence and optimal policy selection.
+Outcome
+
+All tests pass
+
+Confirms immediate optimal policy computation
 
 4. Q-Learning in Gridworld
+Purpose
 
-Purpose:
-To evaluate model-free learning in a simple environment.
+To demonstrate slower convergence in a model-free agent.
 
-Expected Behavior:
-- Initial average reward: –0.25
-- Reward after ~50 episodes: +0.08
-- Slower but steady convergence
+Expected Behavior
 
-Commands:
+Initial reward: –0.25
+
+Reward after 50 episodes: +0.08
+
+Gradual stabilization
+
+Commands
 python autograder.py -q q1 --verbose
+
 python gridworld.py -a q
 
-Outcome:
-- Early episodes show oscillating rewards.
-- Rewards gradually improve and stabilize.
+Outcome
+
+Early oscillating behavior
+
+Rewards slowly rise and stabilize
 
 5. Q-Learning in Pacman (SmallGrid)
+Purpose
 
-Purpose:
-To study learning efficiency in a simple, partially adversarial maze.
+Test Q-Learning efficiency in a simple maze with one ghost.
 
-Expected Behavior:
-- Rewards improve from –510 → –159 over 2000 episodes
-- Testing scores consistently exceed 495
-- Visual movement becomes efficient and stable
+Expected Behavior
 
-Command:
+Reward improvement: –510 → –159 over 2000 episodes
+
+Test scores: ≥ 495 (consistent)
+
+Path becomes efficient and smooth
+
+Command
 python pacman.py -p PacmanQAgent -x 2000 -n 2100 -l smallGrid -a epsilon=0.1,alpha=0.5
 
-Outcome:
-- Pacman learns optimal routes efficiently.
-- Smooth, stable movement demonstrated visually.
+Outcome
+
+Pacman quickly learns optimal routes
+
+Stable movement observed
 
 6. Q-Learning in Pacman (mediumClassic)
+Purpose
 
-Purpose:
-Evaluate learning under complex, stochastic, and adversarial conditions.
+Analyze learning under complex, adversarial dynamics.
 
-Expected Behavior:
-- Frequent early deaths
-- Slow but steady improvement
-- Reward progression: –437 → –385 over 2000 episodes
-- Visible improvement in ghost avoidance and pathing
+Expected Behavior
 
-Command:
+Early deaths common
+
+Improvement is slow but steady
+
+Reward trend: –437 → –385
+
+Better ghost avoidance over time
+
+Command
 python pacman.py -p PacmanQAgent -x 2000 -n 2100 -l mediumClassic -a epsilon=0.1,alpha=0.5
 
-Outcome:
-- Initial random movement
-- Gradual reduction in ghost collisions
-- More stable cumulative rewards over time
+Outcome
 
-7. Logging Metrics for Analysis
+Early random behavior
 
-The project tracks:
-- Cumulative reward per episode
-- Convergence time
-- Episode length
-- Success rate (completion of food collection)
+Later episodes show strategic movement
 
-Command:
+Reduced ghost collisions
+
+7. Logging Metrics
+
+Metrics tracked:
+
+Cumulative reward
+
+Convergence stability
+
+Episode length
+
+Success rate
+
+Command
 python pacman.py -p QLearningAgent -n 200 | tee pacman_log.txt
 
-Outcome:
-- Log file contains detailed episode scores
-- Used for plotting and statistical analysis
+Outcome
 
-8. Challenges and Solutions
+Log file contains detailed episode scores
 
-Challenge                            Solution                                 Outcome
-------------------------------------------------------------------------------------------------------
-Reward oscillation in Q-Learning     Tuned α and ε                           Stabilized learning curves
-Slow Value Iteration on large maps   Introduced convergence threshold Δ      Faster computation
-Pacman stochastic behavior           Averaged multiple runs                  Smoother reward curves
-Agent–environment inconsistencies    Modularized state/action structures     Seamless execution
+Used for plotting learning curves
 
+8. Challenges & Solutions
+Challenge	Solution	Outcome
+Q-Learning reward instability	Tuned α & ε	More stable curves
+Value Iteration slow on large maps	Added Δ threshold	Faster convergence
+Pacman stochasticity	Averaged multiple runs	Smoother results
+Agent–environment mismatches	Modularized state/action logic	No execution errors
 9. Conclusion
 
-- Value Iteration is the fastest and most stable in deterministic environments like Gridworld.
-- Q-Learning adapts well to stochastic and adversarial environments like Pacman.
-- Gridworld highlights the strengths of model-based RL.
-- Pacman demonstrates the flexibility and robustness of model-free RL.
-- All experimental findings align with theoretical expectations in reinforcement learning.
+Value Iteration is optimal and instantly convergent in deterministic environments like Gridworld.
 
-The project meets all planned objectives, and results are verified through logs, autograder outputs, and visual demonstrations.
+Q-Learning is robust and effective in stochastic, adversarial domains like Pacman.
+
+Gridworld confirms the strengths of model-based RL.
+
+Pacman highlights the adaptability of model-free RL.
+
+All results align with RL theory and meet project objectives.
