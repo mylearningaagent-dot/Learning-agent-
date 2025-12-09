@@ -94,7 +94,7 @@ dir</code></pre>
   </ul>
 
   <h3>Commands</h3>
-  <pre><code class="language-bash">python autograder.py -q q1 --verbose
+  <pre><code class="language-bash">
 
 python gridworld.py -a q</code></pre>
 
