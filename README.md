@@ -94,7 +94,7 @@ dir</code></pre>
   </ul>
 
   <h3>Commands</h3>
-  <pre><code class="language-bash">python gridworld.py -a q</code></pre>
+  <pre><code class="language-bash">python gridworld.py -a q -k 50</code></pre>
 
   <h3>Outcome</h3>
   <p>Early episodes show oscillating rewards; rewards gradually improve and stabilize.</p>
