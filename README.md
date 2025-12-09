@@ -59,9 +59,6 @@ dir</code></pre>
     <li><code>valueIterationAgents.py</code> — Value Iteration agent.</li>
   </ul>
 
-  <h3>Q-Learning Update Rule</h3>
-  <pre><code class="language-python">Q(s,a) = Q(s,a) + α * ( r + γ * max_a' Q(s',a') - Q(s,a) )</code></pre>
-
   <p>This modular architecture ensures clarity, reproducibility, and easy experimentation.</p>
 
   <h2 id="value-iteration">3. Value Iteration in Gridworld</h2>
