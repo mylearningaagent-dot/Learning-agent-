@@ -1,4 +1,3 @@
-<img width="704" height="105" alt="image" src="https://github.com/user-attachments/assets/706d8d66-c9a9-4084-bb4c-9598b48806d5" />
 <body>
 
   <h1>Reinforcement Learning in Gridworld and Pacman: Performance Analysis of Q-Learning vs Value Iteration</h1>
