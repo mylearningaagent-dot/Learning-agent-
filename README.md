@@ -4,9 +4,9 @@
 
   <h2>Group Members</h2>
   <ul>
-    <li>Archana MannamSai</li>
-    <li>Supraja GantaRaymond </li>
-    <li>Frimpong Amoateng</li>
+    <li>Archana Mannam</li>
+    <li>Sai Supraja Ganta d </li>
+    <li>Oluwatomisin Ajayi</li>
   </ul>
 
   <h2 id="introduction">1. Introduction</h2>
