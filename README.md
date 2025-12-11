@@ -5,7 +5,7 @@
   <h2>Group Members</h2>
   <ul>
     <li>Archana Mannam</li>
-    <li>Sai Supraja Ganta d </li>
+    <li>Sai Supraja Ganta </li>
     <li>Oluwatomisin Ajayi</li>
   </ul>
 
